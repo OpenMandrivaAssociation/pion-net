@@ -18,6 +18,7 @@ Patch3:		pion-net-boost-linking.patch
 Patch4:		pion-net-log4cpp-headers.patch
 Patch5:		pion-net-boost-compatibility.patch
 Patch6:		pion-net-boost-time-utc.patch
+BuildRequires:	doxygen
 BuildRequires:	boost-devel
 BuildRequires:	bzip2-devel
 BuildRequires:	icu-devel
