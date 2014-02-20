@@ -1,0 +1,16 @@
+Add missing header file for log4cpp.
+
+Author: Jan Vcelak <jvcelak@redhat.com>
+
+diff --git a/common/include/pion/PionLogger.hpp b/common/include/pion/PionLogger.hpp
+index 4fce9ee..532c724 100644
+--- a/common/include/pion/PionLogger.hpp
++++ b/common/include/pion/PionLogger.hpp
+@@ -153,6 +153,7 @@
+ 	#include <log4cpp/BasicLayout.hh>
+ 	#include <log4cpp/OstreamAppender.hh>
+ 	#include <log4cpp/AppenderSkeleton.hh>
++	#include <log4cpp/PropertyConfigurator.hh>
+ 
+ 	namespace pion {
+ 		typedef log4cpp::Category*	PionLogger;

@@ -1,0 +1,12 @@
+diff -urN pion-net-4.0.9/common/src/PionScheduler.cpp pion-net-4.0.9-patched/common/src/PionScheduler.cpp
+--- pion-net-4.0.9/common/src/PionScheduler.cpp	2008-11-08 09:41:17.000000000 +1000
++++ pion-net-4.0.9-patched/common/src/PionScheduler.cpp	2014-02-20 21:01:20.147141792 +1100
+@@ -102,7 +102,7 @@
+ 										  boost::uint32_t sleep_nsec)
+ {
+ 	boost::xtime wakeup_time;
+-	boost::xtime_get(&wakeup_time, boost::TIME_UTC);
++	boost::xtime_get(&wakeup_time, boost::TIME_UTC_);
+ 	wakeup_time.sec += sleep_sec;
+ 	wakeup_time.nsec += sleep_nsec;
+ 	if (static_cast<boost::uint32_t>(wakeup_time.nsec) >= NSEC_IN_SECOND) {

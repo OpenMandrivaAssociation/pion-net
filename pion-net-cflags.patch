@@ -1,0 +1,32 @@
+Fix configure.in not to replace Fedora compiler flags.
+
+Author: Jan Vcelak <jvcelak@redhat.com>
+
+diff --git a/common/build/pion-setup.inc b/common/build/pion-setup.inc
+--- a/common/build/pion-setup.inc
++++ b/common/build/pion-setup.inc
+@@ -86,7 +86,7 @@ case "$build_os" in
+ 	# Other (Linux): GCC compiler
+ 	CPPFLAGS="$CPPFLAGS -pthread -D_REENTRANT"
+ 	LDFLAGS="$LDFLAGS -pthread -Wl,-E"
+-	PION_OPT_FLAGS="-O2 -ggdb -Wall -Wno-strict-aliasing -DNDEBUG"
++	PION_OPT_FLAGS="-Wall -Wno-strict-aliasing -DNDEBUG"
+ 	PION_DEBUG_FLAGS="-O0 -ggdb -Wall -Wno-strict-aliasing -fkeep-inline-functions"
+ 	PION_EXTERNAL_LIBS="-ldl -licui18n -licuuc -licudata"
+ 	;;
+diff --git a/configure.ac b/configure.ac
+--- a/configure.ac
++++ b/configure.ac
+@@ -23,10 +23,8 @@ DX_DOXYGEN_FEATURE(ON)
+ DX_HTML_FEATURE(ON)
+ DX_INIT_DOXYGEN(pion-net, net/doc/Doxyfile, net/doc)
+ 
+-# Define CXXFLAGS before AC_PROG_CXX to suppress the default autoconf
+-# compiler options
+-CFLAGS="-DPION_NETWORK_LIBRARY"
+-CXXFLAGS="-DPION_NETWORK_LIBRARY"
++CFLAGS="$CFLAGS -DPION_NETWORK_LIBRARY"
++CXXFLAGS="$CXXFLAGS -DPION_NETWORK_LIBRARY"
+ 
+ # Currently only the embedded common library can be used
+ PION_COMMON_HOME=`pwd`/common

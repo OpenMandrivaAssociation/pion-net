@@ -1,0 +1,16 @@
+Fix error on symbol lookup for GCC 4.7
+
+Author: Jan Vcelak <jvcelak@redhat.com>
+
+diff a/common/include/pion/PluginManager.hpp b/common/include/pion/PluginManager.hpp
+--- a/common/include/pion/PluginManager.hpp
++++ b/common/include/pion/PluginManager.hpp
+@@ -420,7 +420,7 @@ inline void PluginManager<PLUGIN_TYPE>::
+ 				delete i->second.first;
+ 			}
+ 		}
+-		erase(std::map<std::string, std::pair<PLUGIN_TYPE *, PionPluginPtr<PLUGIN_TYPE> > >::begin(),
++		this->erase(std::map<std::string, std::pair<PLUGIN_TYPE *, PionPluginPtr<PLUGIN_TYPE> > >::begin(),
+ 			  std::map<std::string, std::pair<PLUGIN_TYPE *, PionPluginPtr<PLUGIN_TYPE> > >::end());
+ 	}
+ }
