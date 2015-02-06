@@ -6,7 +6,7 @@
 Summary:	C++ library for building lightweight HTTP interfaces
 Name:		pion-net
 Version:	4.0.9
-Release:	1
+Release:	2
 License:	Boost
 Group:		System/Libraries
 Url:		http://www.pion.org/projects/pion-network-library
