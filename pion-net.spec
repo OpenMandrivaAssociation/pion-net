@@ -9,7 +9,7 @@ Version:	4.0.9
 Release:	2
 License:	Boost
 Group:		System/Libraries
-Url:		http://www.pion.org/projects/pion-network-library
+Url:		https://www.pion.org/projects/pion-network-library
 Source0:	http://www.pion.org/files/%{name}-%{version}.tar.bz2
 Patch0:		pion-net-cflags.patch
 Patch1:		pion-net-pkgconfig.patch
